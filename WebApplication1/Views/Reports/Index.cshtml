@@ -1,0 +1,79 @@
+﻿@model IEnumerable<WebApplication1.Models.Reports>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EndDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstParameter)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SecondParameter)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ThirdParameter)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstParameter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecondParameter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThirdParameter)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#mine" aria-controls="home" role="tab" data-toggle="tab">Параметры отчёта</a></li>
+        <li role="presentation"><a href="#report1" aria-controls="report1" role="tab" data-toggle="tab">Отчёт №1</a></li>
+        <li role="presentation"><a href="#report2" aria-controls="report2" role="tab" data-toggle="tab">Отчёт №2</a></li>
+        <li role="presentation"><a href="#controll" aria-controls="controll" role="tab" data-toggle="tab">Контроль</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="mine">1</div>
+        <div role="tabpanel" class="tab-pane" id="report1">2</div>
+        <div role="tabpanel" class="tab-pane" id="report2">3</div>
+        <div role="tabpanel" class="tab-pane" id="controll">4</div>
+    </div>
+
+</div>
