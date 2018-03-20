@@ -18,10 +18,29 @@
 
     <!-- Tab panes -->
     <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="mine">1</div>
-        <div role="tabpanel" class="tab-pane" id="report1">2</div>
+        <div role="tabpanel" class="tab-pane active" id="mine">
+            <!--@Ajax.ActionLink("Поменять данные", "Index", "Home", new { }, new AjaxOptions { UpdateTargetId = "container" }, new { id = "update-container" })
+    {
+
+    }-->
+        </div>
+        <div role="tabpanel" class="tab-pane" id="report1">
+            <ul>
+                @foreach (var item in Model)
+                {
+                    <li>
+                        @Html.DisplayFor(modelItem => item.EndDate)
+                    </li>
+                }
+            </ul>
+
+        </div>
         <div role="tabpanel" class="tab-pane" id="report2">3</div>
         <div role="tabpanel" class="tab-pane" id="controll">4</div>
     </div>
 
 </div>
+
+<script src="~/Scripts/MicrosoftAjax.js" type="text/javascript"></script>
+<script src="~/Scripts/MicrosoftMvcAjax.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>

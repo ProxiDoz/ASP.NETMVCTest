@@ -144,6 +144,26 @@ namespace WebApplication1.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // new function for ajax method
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult GetByParams(DateTime start, DateTime end, bool first, bool second, bool third)
+        {
+            var reports = _context.Reports.Where(a =>
+            a.StartDate >= start &&
+            a.EndDate <= end &&
+            a.FirstParameter == first &&
+            a.SecondParameter == second &&
+            a.ThirdParameter == third).ToList();
+
+            if (reports.Count <= 0)
+            {
+                return NotFound();
+            }
+            return View(reports);
+        }
+
         private bool ReportsExists(int id)
         {
             return _context.Reports.Any(e => e.ID == id);
